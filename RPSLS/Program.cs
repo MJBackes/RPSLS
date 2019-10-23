@@ -33,6 +33,7 @@ namespace RPSLS
                         game.StartGame();
                         break;
                     default:
+                        continuePlaying = true;
                         break;
                 }
                 if (continuePlaying)

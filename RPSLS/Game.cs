@@ -108,7 +108,6 @@ namespace RPSLS
                 if (P1Choice.DoITie(P2Choice))
                 {
                     Console.WriteLine($"Round is a tie.({P1Choice.Name})");
-                    continue;
                 }
                 else if (P1Choice.DoIBeat(P2Choice))
                 {

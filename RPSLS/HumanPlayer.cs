@@ -27,6 +27,7 @@ namespace RPSLS
             do
             {
                 Console.WriteLine($"Enter the name of the gesture you want to choose,{Name}:");
+                
                 input = Console.ReadLine().ToLower();
             } while (!gestureNames.Contains(input));
             switch (input)
