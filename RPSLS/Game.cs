@@ -84,7 +84,7 @@ namespace RPSLS
                     break;
             }
         }
-        public void PrintGestureList()
+        private void PrintGestureList()
         {
             foreach(Gesture gesture in GestureList)
             {
@@ -92,7 +92,7 @@ namespace RPSLS
             }
             Console.WriteLine("\n");
         }
-        public void StartGame()
+        private void StartGame()
         {
 
             ChooseNumberOfPlayers();
@@ -132,6 +132,51 @@ namespace RPSLS
             {
                 Console.WriteLine($"{P2.Name} Wins.");
             }
+        }
+        public void RunGame()
+        {
+            bool continuePlaying = false;
+            string input;
+            do
+            {
+                continuePlaying = false;
+                Console.Clear();
+                Console.WriteLine("1:Display Rules.");
+                Console.WriteLine("2:Start");
+                Console.WriteLine("Enter 1 to see the rules, 2 to start.");
+                input = (Console.ReadLine());
+                switch (input)
+                {
+                    case "1":
+                        DisplayRules();
+                        Console.ReadLine();
+                        continuePlaying = true;
+                        break;
+                    case "2":
+                        StartGame();
+                        break;
+                    default:
+                        continuePlaying = true;
+                        break;
+                }
+                if (continuePlaying)
+                {
+                    continue;
+                }
+                do
+                {
+                    Console.WriteLine("Play Again? 'Y'/'N'");
+                    input = Console.ReadLine().ToLower();
+                } while (input != "y" && input != "n");
+                if (input == "y")
+                {
+                    continuePlaying = true;
+                }
+                else
+                {
+                    continuePlaying = false;
+                }
+            } while (continuePlaying);
         }
     }
 }
