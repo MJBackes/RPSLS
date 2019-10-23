@@ -17,6 +17,19 @@ namespace RPSLS
             Name = "Paper";
         }
         //MembMeth
-
+        public override void PrintVictoryText(Gesture gesture)
+        {
+            switch (gesture.Name)
+            {
+                case "Rock":
+                    Console.WriteLine("Paper covers Rock.");
+                    break;
+                case "Spock":
+                    Console.WriteLine("Paper disproves Spock.");
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

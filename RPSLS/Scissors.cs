@@ -17,6 +17,19 @@ namespace RPSLS
             Name = "Scissors";
         }
         //MembMeth
-
+        public override void PrintVictoryText(Gesture gesture)
+        {
+            switch (gesture.Name)
+            {
+                case "Paper":
+                    Console.WriteLine("Scissors cuts Paper.");
+                    break;
+                case "Lizard":
+                    Console.WriteLine("Scissors decapitates Lizard.");
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

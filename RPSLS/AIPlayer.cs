@@ -17,7 +17,7 @@ namespace RPSLS
             rng = new Random();
         }
         //MembMeth
-        public override Gesture ChooseGesture(List<string> gestureNames)
+        public override Gesture ChooseGesture(List<Gesture> gestures)
         {
             switch (GenerateRandomNumber())
             {

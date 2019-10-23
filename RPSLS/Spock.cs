@@ -16,6 +16,19 @@ namespace RPSLS
             Name = "Spock";
         }
         //MembMeth
-
+        public override void PrintVictoryText(Gesture gesture)
+        {
+            switch (gesture.Name)
+            {
+                case "Rock":
+                    Console.WriteLine("Spock vaporizes Rock.");
+                    break;
+                case "Scissors":
+                    Console.WriteLine("Spock smashes Scissors.");
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

@@ -10,19 +10,50 @@ namespace RPSLS
     {
         static void Main(string[] args)
         {
-            Game game = new Game();
-            AIPlayer AI1 = new AIPlayer();
-            for (int i = 0; i < 10; i++)
+            Game game;
+            bool continuePlaying = false ;
+            string input;
+            do
             {
-                Console.WriteLine(AI1.ChooseGesture(game.GestureNames).Name);
-            }
-            Player P1 = new HumanPlayer("Me");
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine(P1.ChooseGesture(game.GestureNames).Name);
-            }
-
-            Console.ReadLine();
+                continuePlaying = false;
+                Console.Clear();
+                game = new Game();
+                Console.WriteLine("1:Display Rules.");
+                Console.WriteLine("2:Start");
+                Console.WriteLine("Enter 1 to see the rules, 2 to start.");
+                input = (Console.ReadLine());
+                switch (input)
+                {
+                    case "1":
+                        game.DisplayRules();
+                        Console.ReadLine();
+                        continuePlaying = true;
+                        break;
+                    case "2":
+                        game.StartGame();
+                        break;
+                    default:
+                        break;
+                }
+                if (continuePlaying)
+                {
+                    continue;
+                }
+                do
+                {
+                    Console.WriteLine("Continue? 'Y'/'N'");
+                    input = Console.ReadLine().ToLower();
+                } while (input != "y" && input != "n");
+                if(input == "y")
+                {
+                    continuePlaying = true;
+                }
+                else
+                {
+                    continuePlaying = false;
+                }
+                Console.ReadLine();
+            } while (continuePlaying);
         }
     }
 }

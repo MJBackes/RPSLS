@@ -17,6 +17,19 @@ namespace RPSLS
             Name = "Lizard";
         }
         //MembMeth
-        
+        public override void PrintVictoryText(Gesture gesture)
+        {
+            switch (gesture.Name)
+            {
+                case "Spock":
+                    Console.WriteLine("Lizard poisons Spock.");
+                    break;
+                case "Paper":
+                    Console.WriteLine("Lizard eats Paper.");
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

@@ -33,5 +33,6 @@ namespace RPSLS
             }
             return false;
         }
+        abstract public void PrintVictoryText(Gesture gesture);
     }
 }

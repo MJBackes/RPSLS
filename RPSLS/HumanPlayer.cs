@@ -16,12 +16,17 @@ namespace RPSLS
             Name = name;
         }
         //MembMeth
-        public override Gesture ChooseGesture(List<string> gestureNames)
+        public override Gesture ChooseGesture(List<Gesture> gestures)
         {
+            List<string> gestureNames = new List<string>();
+            foreach(Gesture gesture in gestures)
+            {
+                gestureNames.Add(gesture.Name.ToLower());
+            }
             string input;
             do
             {
-                Console.WriteLine("Enter the name of the gesture you want to choose:");
+                Console.WriteLine($"Enter the name of the gesture you want to choose,{Name}:");
                 input = Console.ReadLine().ToLower();
             } while (!gestureNames.Contains(input));
             switch (input)

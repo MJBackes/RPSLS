@@ -10,9 +10,10 @@ namespace RPSLS
     {
         //MembVars
         public string Name;
+        public int RoundsWon;
         //Constr
 
         //MembMeth
-        abstract public Gesture ChooseGesture(List<string> gestureNames);
+        abstract public Gesture ChooseGesture(List<Gesture> gestures);
     }
 }

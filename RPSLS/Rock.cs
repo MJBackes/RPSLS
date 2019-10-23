@@ -17,6 +17,19 @@ namespace RPSLS
             Name = "Rock";
         }
         //MembMeth
-
+        public override void PrintVictoryText(Gesture gesture)
+        {
+            switch (gesture.Name)
+            {
+                case "Lizard":
+                    Console.WriteLine("Rock crushes Lizard.");
+                    break;
+                case "Scissors":
+                    Console.WriteLine("Rock crushes Scissors.");
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
