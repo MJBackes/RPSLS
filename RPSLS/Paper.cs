@@ -8,5 +8,15 @@ namespace RPSLS
 {
     class Paper : Gesture
     {
+        //MembVars
+
+        //Constr
+        public Paper()
+        {
+            GesturesIBeat = new List<string> { "Rock", "Spock" };
+            Name = "Paper";
+        }
+        //MembMeth
+
     }
 }

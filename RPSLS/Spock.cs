@@ -8,5 +8,14 @@ namespace RPSLS
 {
     class Spock : Gesture
     {
+        //MembVars
+        //Constr
+        public Spock()
+        {
+            GesturesIBeat = new List<string> { "Scissors", "Rock" };
+            Name = "Spock";
+        }
+        //MembMeth
+
     }
 }

@@ -8,5 +8,11 @@ namespace RPSLS
 {
     public abstract class Player
     {
+        //MembVars
+        public string Name;
+        //Constr
+
+        //MembMeth
+        abstract public Gesture ChooseGesture(List<string> gestureNames);
     }
 }
