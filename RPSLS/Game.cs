@@ -46,22 +46,24 @@ namespace RPSLS
         {
             Console.Clear();
             int rounds;
+            bool isInt;
             do
             {
                 Console.WriteLine("Enter the number of rounds needed to win the game:");
-                rounds = int.Parse(Console.ReadLine());
-            } while (rounds < 2);
+                isInt = int.TryParse(Console.ReadLine(),out rounds);
+            } while (rounds < 2 || !isInt);
             RoundsToTWin = rounds;
         }
         private void ChooseNumberOfPlayers()
         {
             Console.Clear();
             int players;
+            bool isInt;
             do
             {
                 Console.WriteLine("Enter the number of players:");
-                players = int.Parse(Console.ReadLine());
-            } while (players < 1 || players.GetType() != 2.GetType() || players >= 3);
+                isInt = int.TryParse(Console.ReadLine(),out players);
+            } while (players < 1 || !isInt || players >= 3);
             switch (players)
             {
                 case 1:
@@ -88,6 +90,7 @@ namespace RPSLS
             {
                 Console.WriteLine(gesture.Name);
             }
+            Console.WriteLine("\n");
         }
         public void StartGame()
         {

@@ -41,7 +41,7 @@ namespace RPSLS
                 }
                 do
                 {
-                    Console.WriteLine("Continue? 'Y'/'N'");
+                    Console.WriteLine("Play Again? 'Y'/'N'");
                     input = Console.ReadLine().ToLower();
                 } while (input != "y" && input != "n");
                 if(input == "y")
@@ -52,7 +52,6 @@ namespace RPSLS
                 {
                     continuePlaying = false;
                 }
-                Console.ReadLine();
             } while (continuePlaying);
         }
     }
