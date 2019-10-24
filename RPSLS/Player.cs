@@ -11,9 +11,10 @@ namespace RPSLS
         //MembVars
         public string Name;
         public int RoundsWon;
+        public bool IsAI;
         //Constr
 
         //MembMeth
-        abstract public Gesture ChooseGesture(List<Gesture> gestures);
+        abstract public Gesture ChooseGesture(List<Gesture> gestures,Random rng);
     }
 }

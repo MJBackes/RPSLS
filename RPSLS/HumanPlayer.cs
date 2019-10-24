@@ -16,7 +16,7 @@ namespace RPSLS
             Name = name;
         }
         //MembMeth
-        public override Gesture ChooseGesture(List<Gesture> gestures)
+        public override Gesture ChooseGesture(List<Gesture> gestures,Random rng)
         {
             List<string> gestureNames = new List<string>();
             foreach(Gesture gesture in gestures)

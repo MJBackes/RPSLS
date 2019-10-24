@@ -13,11 +13,13 @@ namespace RPSLS
         public int RoundsToTWin;
         public Player P1;
         public Player P2;
+        public Random rng;
         //Constr
         public Game()
         {
             GestureList = new List<Gesture> { new Rock(),new Paper(),
                 new Scissors(),new Lizard(), new Spock()};
+            rng = new Random();
         }
         //MembMeth
         public void DisplayRules()
@@ -61,16 +63,32 @@ namespace RPSLS
             bool isInt;
             do
             {
-                Console.WriteLine("Enter the number of players:");
+                Console.WriteLine("Enter the number of players(0, 1, or 2):");
                 isInt = int.TryParse(Console.ReadLine(),out players);
-            } while (players < 1 || !isInt || players >= 3);
+            } while (players < 0 || !isInt || players >= 3);
+            InstanciatePlayers(players);
+        }
+        private void PrintGestureList()
+        {
+            foreach(Gesture gesture in GestureList)
+            {
+                Console.WriteLine(gesture.Name);
+            }
+            Console.WriteLine("\n");
+        }
+        private void InstanciatePlayers(int players)
+        {
             switch (players)
             {
+                case 0:
+                    P1 = new AIPlayer(1);
+                    P2 = new AIPlayer(2);
+                    break;
                 case 1:
                     Console.WriteLine("Enter your name:");
                     string newName = Console.ReadLine();
                     P1 = new HumanPlayer(newName);
-                    P2 = new AIPlayer();
+                    P2 = new AIPlayer(2);
                     break;
                 case 2:
                     Console.WriteLine("Enter Player 1's name:");
@@ -84,14 +102,6 @@ namespace RPSLS
                     break;
             }
         }
-        private void PrintGestureList()
-        {
-            foreach(Gesture gesture in GestureList)
-            {
-                Console.WriteLine(gesture.Name);
-            }
-            Console.WriteLine("\n");
-        }
         private void StartGame()
         {
 
@@ -103,8 +113,20 @@ namespace RPSLS
             {
                 Console.Clear();
                 PrintGestureList();
-                P1Choice = P1.ChooseGesture(GestureList);
-                P2Choice = P2.ChooseGesture(GestureList);
+                P1Choice = P1.ChooseGesture(GestureList,rng);
+                if(P1.IsAI)
+                {
+                    Console.WriteLine($"{P1.Name} chose {P1Choice.Name}");
+                    Console.ReadLine();
+                }
+                Console.Clear();
+                PrintGestureList();
+                P2Choice = P2.ChooseGesture(GestureList,rng);
+                if (P2.IsAI)
+                {
+                    Console.WriteLine($"{P2.Name} chose {P2Choice.Name}");
+                    Console.ReadLine();
+                }
                 if (P1Choice.DoITie(P2Choice))
                 {
                     Console.WriteLine($"Round is a tie.({P1Choice.Name})");
