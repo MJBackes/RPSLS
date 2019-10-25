@@ -15,6 +15,6 @@ namespace RPSLS
         //Constr
 
         //MembMeth
-        abstract public Gesture ChooseGesture(List<Gesture> gestures,Random rng);
+        abstract public Gesture ChooseGesture(List<Gesture> gestures);
     }
 }

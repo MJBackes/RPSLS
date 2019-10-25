@@ -13,13 +13,11 @@ namespace RPSLS
         public int RoundsToTWin;
         public Player P1;
         public Player P2;
-        public Random rng;
         //Constr
         public Game()
         {
             GestureList = new List<Gesture> { new Rock(),new Paper(),
                 new Scissors(),new Lizard(), new Spock()};
-            rng = new Random();
         }
         //MembMeth
         public void DisplayRules()
@@ -113,7 +111,7 @@ namespace RPSLS
             {
                 Console.Clear();
                 PrintGestureList();
-                P1Choice = P1.ChooseGesture(GestureList,rng);
+                P1Choice = P1.ChooseGesture(GestureList);
                 if(P1.IsAI)
                 {
                     Console.WriteLine($"{P1.Name} chose {P1Choice.Name}");
@@ -121,7 +119,7 @@ namespace RPSLS
                 }
                 Console.Clear();
                 PrintGestureList();
-                P2Choice = P2.ChooseGesture(GestureList,rng);
+                P2Choice = P2.ChooseGesture(GestureList);
                 if (P2.IsAI)
                 {
                     Console.WriteLine($"{P2.Name} chose {P2Choice.Name}");

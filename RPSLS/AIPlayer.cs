@@ -9,16 +9,21 @@ namespace RPSLS
     public class AIPlayer : Player
     {
         //MembVars
+        private Random rng;
+        int PlayerNum;
         //Constr
         public AIPlayer(int playerNum)
         {
-            Name = "PLayer " + playerNum;
+            PlayerNum = playerNum;
+            Name = "AIPlayer " + playerNum;
             IsAI = true;
+            rng = new Random();
+            DesyncRandoms();
         }
         //MembMeth
-        public override Gesture ChooseGesture(List<Gesture> gestures,Random rng)
+        public override Gesture ChooseGesture(List<Gesture> gestures)
         {
-            switch (GenerateRandomNumber(rng))
+            switch (GenerateRandomNumber())
             {
                 case 1:
                     return new Rock();
@@ -34,9 +39,16 @@ namespace RPSLS
                     return new Rock();
             }
         }
-        private int GenerateRandomNumber(Random rng)
+        private int GenerateRandomNumber()
         {
             return rng.Next(1, 6);
+        }
+        private void DesyncRandoms()
+        {
+            for(int i = GenerateRandomNumber(); i < GenerateRandomNumber()*GenerateRandomNumber()*5; i+=PlayerNum)
+            {
+                GenerateRandomNumber();
+            }
         }
     }
 }
