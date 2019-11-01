@@ -47,6 +47,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="Gesture.cs" />
     <Compile Include="HumanPlayer.cs" />
+    <Compile Include="IgnoreTestClass.cs" />
     <Compile Include="Lizard.cs" />
     <Compile Include="Paper.cs" />
     <Compile Include="Player.cs" />
